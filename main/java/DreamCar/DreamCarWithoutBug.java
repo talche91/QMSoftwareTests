@@ -28,14 +28,11 @@ public class DreamCarWithoutBug {
         double addonDiscount;
         double result;
 
-        if (extras >= 3) {
+        if (extras >= 3 && extras < 5) {
             addonDiscount = 10;
-        }
-//        is not reachable because
-//        else if (extras >= 5) {
-//            addonDiscount = 15;
-//        }
-        else {
+        } else if (extras >= 5) {
+            addonDiscount = 15;
+        } else {
             addonDiscount = 0;
         }
 

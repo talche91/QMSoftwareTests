@@ -8,7 +8,7 @@ package DreamCar;
  * realisiert. Die Aufrufliste der Funktion ist jetzt leer.
  *
  */
-public class DreamCarWihtoutBug {
+public class DreamCar {
 
     private double basePrice;
     private double specialPrice;
@@ -16,7 +16,7 @@ public class DreamCarWihtoutBug {
     private int extras;
     private double discount;
 
-    public DreamCarWihtoutBug(double basePrice, double specialPrice, double extraPrice, int extras, double discount) {
+    public DreamCar(double basePrice, double specialPrice, double extraPrice, int extras, double discount) {
         this.basePrice = basePrice;
         this.specialPrice = specialPrice;
         this.extraPrice = extraPrice;
