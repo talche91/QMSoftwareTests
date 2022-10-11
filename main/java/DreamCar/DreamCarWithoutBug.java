@@ -1,5 +1,7 @@
 package DreamCar;
 
+import static java.lang.Double.NaN;
+
 /**
  * Klasse für die Berechnung des Preises.
  *
@@ -28,22 +30,38 @@ public class DreamCarWithoutBug {
         double addonDiscount;
         double result;
 
-        if (extras >= 3 && extras < 5) {
-            addonDiscount = 10;
-        } else if (extras >= 5) {
-            addonDiscount = 15;
+        if (basePrice >= Double.MAX_VALUE || specialPrice >= Double.MAX_VALUE || extraPrice >= Double.MAX_VALUE || extras >= Integer.MAX_VALUE || discount > Double.MAX_VALUE) {
+//            when a value is greater or equals MAX_VALUE, than return MAX_VALUE + 0.01
+//            specification
+            return Double.MAX_VALUE + 0.01;
+
+        } else if (basePrice > 0 && specialPrice > 0 && extraPrice > 0 && extras > 0 && discount > 0) {
+            if (extras >= 3 && extras < 5) {
+                addonDiscount = 10;
+            } else if (extras >= 5) {
+                addonDiscount = 15;
+            } else {
+                addonDiscount = 0;
+            }
+
+            if (discount > 100) {
+                return NaN;
+            } else if (discount > addonDiscount) {
+                addonDiscount = 0;
+            }
+
+            result = (basePrice / 100.0) * (100.0 - discount)
+                    + specialPrice
+                    + extraPrice / 100.0 * (100.0 - addonDiscount);
+
+            return result;
+
+        } else if (basePrice < 0 || specialPrice < 0 || extraPrice < 0 || extras < 0 || discount < 0) {
+            return NaN;
         } else {
-            addonDiscount = 0;
+            return 0.0;
         }
 
-        if (discount > addonDiscount) {
-            addonDiscount = discount;
-        }
 
-        result = (basePrice / 100.0) * (100.0 - discount)
-                + specialPrice
-                + extraPrice / 100.0 * (100.0 - addonDiscount);
-
-        return result;
     }
 }

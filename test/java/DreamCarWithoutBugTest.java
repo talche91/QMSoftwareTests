@@ -30,7 +30,6 @@ public class DreamCarWithoutBugTest {
         assertThat(result).isEqualTo(expected);
     }
 
-    //    notvalid
     @Test
     public void testCalculatePrice4() {
         DreamCarWithoutBug dc = new DreamCarWithoutBug(-1, 3450.00, 6000.00, 1, 10.00);
@@ -46,7 +45,6 @@ public class DreamCarWithoutBugTest {
         assertThat(result).isNaN();
     }
 
-    //    notvalid
     @Test
     public void testCalculatePrice6() {
         DreamCarWithoutBug dc = new DreamCarWithoutBug(20000.0, -1.0, 6000.0, 1, 10.00);
@@ -62,7 +60,6 @@ public class DreamCarWithoutBugTest {
         assertThat(result).isNaN();
     }
 
-    //    notvalid
     @Test
     public void testCalculatePrice8() {
         DreamCarWithoutBug dc = new DreamCarWithoutBug(20000.0, 3450.0, -1.0, 1, 10.00);
@@ -86,7 +83,6 @@ public class DreamCarWithoutBugTest {
         assertThat(result).isNaN();
     }
 
-    //    notvalid
     @Test
     public void testCalculatePrice11() {
         DreamCarWithoutBug dc = new DreamCarWithoutBug(20000.0, 3450.0, 6000.0, Integer.parseInt("abc"), 10.00);
@@ -94,7 +90,6 @@ public class DreamCarWithoutBugTest {
         assertThat(result).isNaN();
     }
 
-    //    notvalid
     @Test
     public void testCalculatePrice12() {
         DreamCarWithoutBug dc = new DreamCarWithoutBug(20000.0, 3450.0, 6000.0, 1, -1.0);
@@ -102,7 +97,6 @@ public class DreamCarWithoutBugTest {
         assertThat(result).isNaN();
     }
 
-    //    notvalid
     @Test
     public void testCalculatePrice13() {
         DreamCarWithoutBug dc = new DreamCarWithoutBug(20000.0, 3450.0, 6000.0, 1, 101.0);
@@ -138,28 +132,28 @@ public class DreamCarWithoutBugTest {
     public void testCalculatePrice17() {
         DreamCarWithoutBug dc = new DreamCarWithoutBug(Double.MAX_VALUE - 0.01, Double.MAX_VALUE - 0.01, Double.MAX_VALUE - 0.01, 4, 99.99);
         double result = dc.calculatePrice();
-        assertThat(result).isInfinite();
+        assertThat(result).isGreaterThanOrEqualTo(Double.MAX_VALUE);
     }
 
     @Test
     public void testCalculatePrice18() {
         DreamCarWithoutBug dc = new DreamCarWithoutBug(Double.MAX_VALUE - 0.01, 3450.0, 6000.0, 1, 10.00);
         double result = dc.calculatePrice();
-        assertThat(result).isInfinite();
+        assertThat(result).isGreaterThanOrEqualTo(Double.MAX_VALUE);
     }
 
     @Test
     public void testCalculatePrice19() {
         DreamCarWithoutBug dc = new DreamCarWithoutBug(20000.00, Double.MAX_VALUE - 0.01, 6000.0, 1, 10.00);
         double result = dc.calculatePrice();
-        assertThat(result).isInfinite();
+        assertThat(result).isGreaterThanOrEqualTo(Double.MAX_VALUE);
     }
 
     @Test
     public void testCalculatePrice20() {
         DreamCarWithoutBug dc = new DreamCarWithoutBug(20000.00, 3450.0, Double.MAX_VALUE - 0.01, 1, 10.00);
         double result = dc.calculatePrice();
-        assertThat(result).isInfinite();
+        assertThat(result).isGreaterThanOrEqualTo(Double.MAX_VALUE);
     }
 
 }
