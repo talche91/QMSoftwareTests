@@ -8,10 +8,10 @@ public class FactorsMain {
 	public static void main(String[] args) {
 		
 		Long number = (long)42;
-//		Long number = Long.parseLong("abc");
 		ComputeFactors factors = new ComputeFactors(number);
-		factors.computeFactor();
-		
+//		factors.computeFactor();
+		factors.computeFactorOptimize();
+
 		System.out.println(factors);
 	}
 }
