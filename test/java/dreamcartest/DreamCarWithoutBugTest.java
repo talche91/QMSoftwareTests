@@ -1,3 +1,5 @@
+package dreamcartest;
+
 import DreamCar.DreamCarWithoutBug;
 import org.junit.Test;
 

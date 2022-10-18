@@ -1,3 +1,5 @@
+package dreamcartest;
+
 import DreamCar.DreamCar;
 import org.junit.Test;
 
