@@ -7,6 +7,14 @@ import java.util.ArrayList;
  *
  * Aufgabenstellung
  */
+
+/**
+ * Mathematische Definition: Eine natürliche Zahl a
+ * ist genau dann ein Teiler einer natürlichen Zahl
+ * n, wenn es eine natürliche Zahl
+ * b gibt, für die
+ * a * b = n gilt.
+ */
 public class ComputeFactors {
 
     private Long number;
@@ -39,31 +47,51 @@ public class ComputeFactors {
     public void computeFactor() {
         Long factor = (long) 2;
 
-        while (factor <= this.number - 1) {
-            if (this.number % factor == 0) {
-                // the value is a factor
-                this.factors.add(factor);
+        if (this.number > 0) {
+            this.factors.add((long) 1);
+            int count = 0;
+
+            while (factor <= this.number - 1) {
+                if (this.number % factor == 0) {
+                    // the value is a factor
+                    this.factors.add(factor);
+                }
+                factor++;
+                count++;
             }
-            factor++;
+
+            if (this.number != 1) {
+                this.factors.add((long) this.number);
+            }
+            System.out.println("Schleifendurchläufe computeFactor: " + count);
         }
+
+
     }
 
     /**
-     * to optimize the method:
+     * optimize the method:
      * less looping
      */
     public void computeFactorOptimize() {
-        Long factor = (long) 2;
         int count = 0;
 
-        for (int i = 2; i <= this.number / 2; i++) {
-            if (this.number % i == 0) {
-                this.factors.add((long) i);
+        if (this.number > 0) {
+            this.factors.add((long) 1);
+
+            for (int i = 2; i <= this.number / 2; i++) {
+                if (this.number % (i) == 0) {
+                    this.factors.add((long) i);
+                }
+                count++;
             }
-            count++;
+
+            if (this.number != 1) {
+                this.factors.add((long) this.number);
+            }
         }
 
-        System.out.println("schleifendurchläufe: " + count);
+        System.out.println("Schleifendurchläufe: " + count);
     }
 
     @Override
